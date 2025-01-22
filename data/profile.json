@@ -1,0 +1,13 @@
+{
+  "name": "Enrique Montes",
+  "profession": "Full-Stack Developer",
+  "profile_url": "https://www.upwork.com/freelancers/enriquemontes",
+  "skills": ["Next.js", "Gatsby.js", "React", "GoHighLevel"],
+  "portfolio": [
+    {
+      "title": "Chiapaneco Turista Website",
+      "link": "https://chiapas.turista.com.mx",
+      "description": "Migrated to Netlify and optimized for performance."
+    }
+  ]
+}
