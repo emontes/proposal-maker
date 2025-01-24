@@ -1,5 +1,5 @@
 import { OpenAI } from "openai";
-import { NextResponse } from "next/server";
+import { NextResponse } from "next/server"; // Import NextResponse
 import profiles from "@/data/profile.json";
 import templates from "@/data/templates.json";
 
@@ -14,17 +14,7 @@ const openai = new OpenAI({
 
 export async function POST(req: Request) {
   try {
-    if (!process.env.OPENAI_API_KEY?.startsWith("sk-")) {
-      return NextResponse.json(
-        {
-          error:
-            'Invalid OpenAI API key format. The key should start with "sk-"',
-        },
-        { status: 401 }
-      );
-    }
-
-    const { jobDescription, template, profileId } = await req.json();
+    const { jobDescription, template, profileId, returnPromptOnly } = await req.json();
 
     if (!jobDescription) {
       return NextResponse.json(
@@ -73,15 +63,11 @@ ${portfolioItems}
 
 The job description is:
 ${jobDescription}
+`;
 
-Generate text only for the content inside {} and leave everything outside {} unchanged. Don't include the {} charactaers in the answer
-  `;
-
-    // console.log("Selected Template: ", selectedTemplate);
     const processedTemplate =
       initialText +
       selectedTemplate.template
-        // .replace('${jobDescription}', jobDescription)
         .replace("${profile.name}", selectedProfile.name)
         .replace("${profile.profession}", selectedProfile.profession)
         .replace("${profile.profileUrl}", selectedProfile.profileUrl)
@@ -95,8 +81,9 @@ Generate text only for the content inside {} and leave everything outside {} unc
           selectedProfile.portfolio.map((p) => p.title).join(", ")
         );
 
-    // console.log("Proces Template: ", processedTemplate);
-    // return JSON.stringify({ processedTemplate });
+    if (returnPromptOnly) {
+      return NextResponse.json({ processedTemplate });
+    }
 
     try {
       const completion = await openai.chat.completions.create({

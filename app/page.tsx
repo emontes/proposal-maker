@@ -11,18 +11,26 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Card } from '@/components/ui/card';
-import { Loader2, Copy, Download, Sparkles } from 'lucide-react';
+import { Loader2, Copy, Download, Sparkles, X } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import templates from '@/data/templates.json';
 import profiles from '@/data/profile.json';
 
 export default function Home() {
   const [jobDescription, setJobDescription] = useState('');
-  const [template, setTemplate] = useState('standard');
+  const [template, setTemplate] = useState(Object.keys(templates)[0]);
   const [selectedProfile, setSelectedProfile] = useState(profiles.profiles[0]?.id || '');
   const [proposal, setProposal] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [isGeneratingProposal, setIsGeneratingProposal] = useState(false);
+  const [isGeneratingPrompt, setIsGeneratingPrompt] = useState(false);
+  const [isButtonsDisabled, setIsButtonsDisabled] = useState(false);
+  const [isCopyClicked, setIsCopyClicked] = useState(false);
+  const [isDownloadClicked, setIsDownloadClicked] = useState(false);
   const { toast } = useToast();
+
+  useEffect(() => {
+    setTemplate(Object.keys(templates)[0]);
+  }, []);
 
   const generateProposal = async () => {
     if (!jobDescription.trim()) {
@@ -43,10 +51,9 @@ export default function Home() {
       return;
     }
 
-    setIsLoading(true);
+    setIsGeneratingProposal(true);
+    setIsButtonsDisabled(true);
     try {
-      console.log('Making request with:', { jobDescription, template, profileId: selectedProfile });
-      
       const response = await fetch('/api/generateProposal', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -58,14 +65,9 @@ export default function Home() {
       });
 
       const data = await response.json();
-      console.log('Response:', data);
 
       if (!response.ok) {
         throw new Error(data.error || `HTTP error! status: ${response.status}`);
-      }
-
-      if (data.error) {
-        throw new Error(data.error);
       }
 
       if (!data.proposal) {
@@ -78,23 +80,83 @@ export default function Home() {
         description: 'Proposal generated successfully!',
       });
     } catch (error) {
-      console.error('Error generating proposal:', error);
       toast({
         title: 'Error',
         description: error instanceof Error ? error.message : 'Failed to generate proposal. Please try again.',
         variant: 'destructive',
       });
     } finally {
-      setIsLoading(false);
+      setIsGeneratingProposal(false);
+    }
+  };
+
+  const generatePrompt = async () => {
+    if (!jobDescription.trim()) {
+      toast({
+        title: 'Error',
+        description: 'Please enter a job description',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    if (!selectedProfile) {
+      toast({
+        title: 'Error',
+        description: 'Please select a profile',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    setIsGeneratingPrompt(true);
+    setIsButtonsDisabled(true);
+    try {
+      const response = await fetch('/api/generateProposal', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          jobDescription,
+          template,
+          profileId: selectedProfile,
+          returnPromptOnly: true,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || `HTTP error! status: ${response.status}`);
+      }
+
+      if (!data.processedTemplate) {
+        throw new Error('No prompt was generated');
+      }
+
+      setProposal(data.processedTemplate);
+      toast({
+        title: 'Success',
+        description: 'Prompt generated successfully!',
+      });
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: error instanceof Error ? error.message : 'Failed to generate prompt. Please try again.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsGeneratingPrompt(false);
     }
   };
 
   const copyToClipboard = async () => {
     await navigator.clipboard.writeText(proposal);
+    setIsCopyClicked(true);
     toast({
       title: 'Copied',
       description: 'Proposal copied to clipboard',
     });
+    setTimeout(() => setIsCopyClicked(false), 1000); // Reset "clicked" indicator
   };
 
   const downloadProposal = () => {
@@ -105,6 +167,16 @@ export default function Home() {
     a.download = 'proposal.txt';
     a.click();
     window.URL.revokeObjectURL(url);
+
+    setIsDownloadClicked(true);
+    setTimeout(() => setIsDownloadClicked(false), 1000); // Reset "clicked" indicator
+  };
+
+  const clearAll = () => {
+    setProposal('');
+    setIsButtonsDisabled(false);
+    setTemplate(Object.keys(templates)[0]);
+    setSelectedProfile(profiles.profiles[0]?.id || '');
   };
 
   return (
@@ -123,13 +195,8 @@ export default function Home() {
           <Card className="p-6 space-y-6">
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium mb-2">
-                  Profile
-                </label>
-                <Select
-                  value={selectedProfile}
-                  onValueChange={setSelectedProfile}
-                >
+                <label className="block text-sm font-medium mb-2">Profile</label>
+                <Select value={selectedProfile} onValueChange={setSelectedProfile}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select a profile" />
                   </SelectTrigger>
@@ -144,9 +211,7 @@ export default function Home() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">
-                  Job Description
-                </label>
+                <label className="block text-sm font-medium mb-2">Job Description</label>
                 <Textarea
                   placeholder="Paste the job description here..."
                   value={jobDescription}
@@ -156,13 +221,8 @@ export default function Home() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">
-                  Template
-                </label>
-                <Select
-                  value={template}
-                  onValueChange={setTemplate}
-                >
+                <label className="block text-sm font-medium mb-2">Template</label>
+                <Select value={template} onValueChange={setTemplate}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select a template" />
                   </SelectTrigger>
@@ -178,18 +238,36 @@ export default function Home() {
 
               <Button
                 onClick={generateProposal}
-                disabled={isLoading}
-                className="w-full"
+                disabled={isGeneratingProposal || isButtonsDisabled}
+                className="w-full bg-blue-500 hover:bg-blue-600 text-white"
               >
-                {isLoading ? (
+                {isGeneratingProposal ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Generating...
+                    Generating Proposal...
                   </>
                 ) : (
                   <>
                     <Sparkles className="mr-2 h-4 w-4" />
                     Generate Proposal
+                  </>
+                )}
+              </Button>
+
+              <Button
+                onClick={generatePrompt}
+                disabled={isGeneratingPrompt || isButtonsDisabled}
+                className="w-full mt-4 bg-green-500 hover:bg-green-600 text-white"
+              >
+                {isGeneratingPrompt ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Generating Prompt...
+                  </>
+                ) : (
+                  <>
+                    <Sparkles className="mr-2 h-4 w-4" />
+                    Generate Prompt
                   </>
                 )}
               </Button>
@@ -199,28 +277,41 @@ export default function Home() {
           {proposal && (
             <Card className="p-6 space-y-4">
               <div className="flex justify-between items-center">
-                <h2 className="text-xl font-semibold">Generated Proposal</h2>
+                <h2 className="text-xl font-semibold">Generated Output</h2>
                 <div className="space-x-2">
                   <Button
                     variant="outline"
                     size="sm"
                     onClick={copyToClipboard}
+                    className={isCopyClicked ? 'bg-green-500 text-white' : ''}
                   >
                     <Copy className="mr-2 h-4 w-4" />
-                    Copy
+                    {isCopyClicked ? 'Copied!' : 'Copy'}
                   </Button>
                   <Button
                     variant="outline"
                     size="sm"
                     onClick={downloadProposal}
+                    className={isDownloadClicked ? 'bg-blue-500 text-white' : ''}
                   >
                     <Download className="mr-2 h-4 w-4" />
-                    Download
+                    {isDownloadClicked ? 'Downloaded!' : 'Download'}
                   </Button>
                 </div>
               </div>
               <div className="bg-muted p-4 rounded-lg whitespace-pre-wrap">
                 {proposal}
+              </div>
+              <div className="text-right">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={clearAll}
+                  className="bg-red-500 text-white hover:bg-red-600"
+                >
+                  <X className="mr-2 h-4 w-4" />
+                  Clear
+                </Button>
               </div>
             </Card>
           )}
