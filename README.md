@@ -99,6 +99,9 @@ This project is a web application built with Next.js and TailwindCSS to generate
 - Expand template customization options.
 - Improve UI/UX with animations and transitions.
 
+## Demo Site
+https://proposal-maker.netlify.app/settings
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
