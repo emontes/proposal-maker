@@ -40,7 +40,7 @@ export async function POST(req: Request) {
     }
 
     const selectedTemplate =
-      templates[template as keyof typeof templates] || templates.standard;
+      templates[template as keyof typeof templates];
 
     const skills = selectedProfile.skills.join(", ");
     const portfolioItems = selectedProfile.portfolio
