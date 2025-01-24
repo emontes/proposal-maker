@@ -51,8 +51,9 @@ export async function POST(req: Request) {
       .join("\n");
 
     const initialText = `
-Give me a cover letter for a job in Upwork. This is my profile:
+Give me a cover letter for a job in Upwork. Make something that catch the customer interest in the first two rows. 
 
+This is my profile:
 - **Name**: ${selectedProfile.name}
 - **Profession**: ${selectedProfile.profession}
 - **Profile URL**: ${selectedProfile.profileUrl}
