@@ -1,10 +1,11 @@
-import { OpenAI } from 'openai';
-import { NextResponse } from 'next/server';
-import profile from '@/data/profile.json';
+import { OpenAI } from "openai";
+import { NextResponse } from "next/server";
+import profiles from "@/data/profile.json";
+import templates from "@/data/templates.json";
 
 // Validate API key before creating the client
 if (!process.env.OPENAI_API_KEY) {
-  throw new Error('OpenAI API key is not configured');
+  throw new Error("OpenAI API key is not configured");
 }
 
 const openai = new OpenAI({
@@ -13,47 +14,94 @@ const openai = new OpenAI({
 
 export async function POST(req: Request) {
   try {
-    // Validate API key format
-    if (!process.env.OPENAI_API_KEY?.startsWith('sk-')) {
+    if (!process.env.OPENAI_API_KEY?.startsWith("sk-")) {
       return NextResponse.json(
-        { error: 'Invalid OpenAI API key format. The key should start with "sk-"' },
+        {
+          error:
+            'Invalid OpenAI API key format. The key should start with "sk-"',
+        },
         { status: 401 }
       );
     }
 
-    const { jobDescription, template } = await req.json();
+    const { jobDescription, template, profileId } = await req.json();
 
     if (!jobDescription) {
       return NextResponse.json(
-        { error: 'Job description is required' },
+        { error: "Job description is required" },
         { status: 400 }
       );
     }
 
-    const templates = {
-      'ask-questions': `Generate a proposal for the following job description:
-"${jobDescription}"
+    if (!profileId) {
+      return NextResponse.json(
+        { error: "Profile ID is required" },
+        { status: 400 }
+      );
+    }
 
-- Start with enthusiasm and an emoji
-- Introduce ${profile.name} as a ${profile.profession} with expertise in ${profile.skills.join(', ')}
-- Ask 2-3 relevant questions about the project
-- End with a friendly call to action`,
-      
-      'standard': `Write a concise proposal for the job description:
-"${jobDescription}"
+    const selectedProfile = profiles.profiles.find((p) => p.id === profileId);
 
-- Highlight ${profile.name}'s skills in web development and automation
-- Mention specific tools like ${profile.skills.join(', ')}
-- Include relevant experience from portfolio: ${profile.portfolio.map(p => p.title).join(', ')}
-- Close with a professional call to action`
-    };
+    if (!selectedProfile) {
+      return NextResponse.json(
+        { error: `Profile with ID "${profileId}" not found` },
+        { status: 404 }
+      );
+    }
 
-    const selectedTemplate = templates[template as keyof typeof templates] || templates.standard;
+    const selectedTemplate =
+      templates[template as keyof typeof templates] || templates.standard;
+
+    const skills = selectedProfile.skills.join(", ");
+    const portfolioItems = selectedProfile.portfolio
+      .map(
+        (project) =>
+          `• **${project.title}**: ${project.description} (${project.link})`
+      )
+      .join("\n");
+
+    const initialText = `
+Give me a cover letter for a job in Upwork. This is my profile:
+
+- **Name**: ${selectedProfile.name}
+- **Profession**: ${selectedProfile.profession}
+- **Profile URL**: ${selectedProfile.profileUrl}
+- **Summary**: ${selectedProfile.summary}
+- **Skills**: ${skills}
+- **Portfolio**:
+${portfolioItems}
+
+The job description is:
+${jobDescription}
+
+Generate text only for the content inside {} and leave everything outside {} unchanged. Don't include the {} charactaers in the answer
+  `;
+
+    // console.log("Selected Template: ", selectedTemplate);
+    const processedTemplate =
+      initialText +
+      selectedTemplate.template
+        // .replace('${jobDescription}', jobDescription)
+        .replace("${profile.name}", selectedProfile.name)
+        .replace("${profile.profession}", selectedProfile.profession)
+        .replace("${profile.profileUrl}", selectedProfile.profileUrl)
+        .replace("${profile.summary}", selectedProfile.summary)
+        .replace(
+          "${profile.skills.join(', ')}",
+          selectedProfile.skills.join(", ")
+        )
+        .replace(
+          "${profile.portfolio.map(p => p.title).join(', ')}",
+          selectedProfile.portfolio.map((p) => p.title).join(", ")
+        );
+
+    // console.log("Proces Template: ", processedTemplate);
+    // return JSON.stringify({ processedTemplate });
 
     try {
       const completion = await openai.chat.completions.create({
-        messages: [{ role: 'user', content: selectedTemplate }],
-        model: 'gpt-4',
+        messages: [{ role: "user", content: processedTemplate }],
+        model: "gpt-4",
         temperature: 0.7,
         max_tokens: 500,
       });
@@ -61,37 +109,31 @@ export async function POST(req: Request) {
       const proposal = completion.choices[0]?.message?.content;
 
       if (!proposal) {
-        throw new Error('No proposal was generated');
+        throw new Error("No proposal was generated");
       }
 
       return NextResponse.json({ proposal });
     } catch (openaiError: any) {
-      console.error('OpenAI API Error:', openaiError);
-      
-      // More specific error messages based on OpenAI error types
+      console.error("OpenAI API Error:", openaiError);
+
       if (openaiError.status === 401) {
         return NextResponse.json(
-          { error: 'Invalid OpenAI API key. Please check your configuration.' },
+          { error: "Invalid OpenAI API key. Please check your configuration." },
           { status: 401 }
         );
       } else if (openaiError.status === 429) {
         return NextResponse.json(
-          { error: 'OpenAI API rate limit exceeded. Please try again later.' },
+          { error: "OpenAI API rate limit exceeded. Please try again later." },
           { status: 429 }
         );
-      } else if (openaiError.code === 'insufficient_quota') {
-        return NextResponse.json(
-          { error: 'OpenAI API quota exceeded. Please check your billing status.' },
-          { status: 402 }
-        );
       }
-      
-      throw new Error(openaiError.message || 'Failed to generate proposal');
+
+      throw new Error(openaiError.message || "Failed to generate proposal");
     }
   } catch (error: any) {
-    console.error('Error in generateProposal:', error);
+    console.error("Error in generateProposal:", error);
     return NextResponse.json(
-      { error: error.message || 'An unexpected error occurred' },
+      { error: error.message || "An unexpected error occurred" },
       { status: error.status || 500 }
     );
   }

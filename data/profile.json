@@ -1,13 +1,48 @@
 {
-  "name": "Enrique Montes",
-  "profession": "Full-Stack Developer",
-  "profile_url": "https://www.upwork.com/freelancers/enriquemontes",
-  "skills": ["Next.js", "Gatsby.js", "React", "GoHighLevel"],
-  "portfolio": [
+  "profiles": [
     {
-      "title": "Chiapaneco Turista Website",
-      "link": "https://chiapas.turista.com.mx",
-      "description": "Migrated to Netlify and optimized for performance."
+      "id": "enrique-montes",
+      "name": "Enrique Montes",
+      "profession": "Full-Stack Developer",
+      "profileUrl": "https://www.upwork.com/freelancers/enriqueadelino",
+      "skills": ["Next.js", "Gatsby.js", "React", "GoHighLevel", "JavaScript", "Typescript", "Tailwind CSS", "Strapi", "Node.js", "Git", "Github", "Wordpress"],
+      "summary": "⚡ Seeking lightning-fast websites that enhance performance, attract users, and boost online revenue?\n\n🔹 I build Next.js and Gatsby solutions that address your most significant web challenges.\n🔹 With over 30 years in IT, plus 5 years of React mastery.\n🔹 I deliver blazing-fast, SEO-focused experiences that elevate your online brand and visibility.\n🔹 Harness SSR, SSG, and dynamic routing for speed, scalability, and user satisfaction.\n🔹 Let me reduce load times, amplify conversions, and reinforce your online presence.\n\n🚀 Ready to elevate your business with a future-proof solution built for success?\n\nI’m 𝐄𝐧𝐫𝐢𝐪𝐮𝐞 𝐌𝐨𝐧𝐭𝐞𝐬, a 𝐅𝐮𝐥𝐥-𝐒𝐭𝐚𝐜𝐤 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫 bringing over 30 years of IT expertise and 𝟓+ years of modern React experience. By leveraging Server-Side Rendering (SSR), Static Site Generation (SSG), and Headless CMS (Strapi, Contentful, Sanity), I craft 𝐡𝐢𝐠𝐡-𝐩𝐞𝐫𝐟𝐨𝐫𝐦𝐚𝐧𝐜𝐞, 𝐒𝐄𝐎-𝐟𝐫𝐢𝐞𝐧𝐝𝐥𝐲 websites that excel in speed and user engagement.\n\n🔧 Here’s how I can help your business thrive:\n\n-⚡ High-Performance Development: Crafting modern, scalable sites with Next.js or Gatsby.\n- 📂 Headless CMS Integration: Connecting Strapi, Contentful, or Sanity for easy content management.\n- 🎨 UI/UX Design: Building engaging interfaces with Tailwind CSS, Styled-Components, and responsive layouts.\n- 🔗 API-Driven Architectures: Utilizing REST or GraphQL for robust, data-centric applications.\n\n📩 Let’s collaborate and create a lightning-fast, scalable web solution tailored to your goals. Message me on Upwork now, and we’ll turn your vision into a high-performance reality. 🚀\n\n🌟 Core Skills:\n\n✅ Front-End Development:\n- JavaScript (ES7+, Babel)\n- React.js\n- Next.js (App Router, Static/Server-Side Rendering)\n- Gatsby.js (Static Site Generation)\n- HTML5, CSS3, SCSS\n- Tailwind CSS, Styled-components\n- UI Frameworks: Material UI, Bootstrap, Reactstrap\n\n✅ Backend & API Development:\n- RESTful APIs & GraphQL\n- Node.js, Express.js\n- Headless CMS integration: Strapi, Contentful, WordPress\n- Apigility, Laminas from Zend\n\n✅ CMS & Headless Solutions:\n- WordPress (Gatsby or Next.js Sourcing WordPress)\n- Strapi (Preferred for Headless CMS)\n- Sanity, Contentful, Prismic\n\n✅ Hosting & Deployment:\n- Vercel, Netlify, AWS, Digital Ocean\n- Serverless Deployments\n- CI/CD Pipelines\n\n✅ Search & Optimization:\n- Typesense, Algolia\n- SEO Optimization for Static Sites\n- Lighthouse Performance Tuning\n\n✅ Development Tools & Workflows:\n- Git/GitHub, CI/CD\n- Visual Studio Code, Docker\n\n🎯 Experience:\nWith extensive experience developing full-stack applications for diverse clients, I have a proven track record of delivering high-quality solutions built on Next.js and Gatsby.js. From building blazing-fast static sites to crafting dynamic, API-driven web apps, I ensure that every project is optimized for performance and scalability.\n\n🤝 Why Work with Me?\n\n✨ Focused Expertise: Specialized in Next.js and Gatsby, ensuring I provide tailored solutions with the most advanced features.\n✨ Reliable & Transparent: I prioritize clear communication and deliver regular updates, ensuring transparency throughout the development process.\n✨ Performance-Driven: I implement best practices to achieve high-performance, SEO-friendly web applications that exceed client expectations.",
+      "portfolio": [
+        {
+          "title": "Peters – App Optimization & Enhancement",
+          "link": "https://www.upwork.com/freelancers/enriqueadelino?p=1879728081945686016",
+          "description": "I resolved critical issues with Gravity Forms data integration from WordPress, stabilizing the app's functionality...",
+          "skills": ["Gatsby.js", "React", "JavaScript", "Typescript", "Wordpress", "Node.js", "Git", "Github"]
+        },
+        {
+          "title": "Bridge Artists – Website Maintenance & Data Modeling",
+          "link": "https://www.upwork.com/freelancers/enriqueadelino?p=1772995277844119552",
+          "description": "I was hired to fix existing errors on a Gatsby site using Contentful, hosted on Netlify...",
+          "skills": ["Gatsby.js", "React", "JavaScript", "Typescript", "Contentful", "Node.js", "Git", "Github", "Sass", "Netlify"]
+        }
+      ]
+    },
+    {
+      "id": "enrique-montes-2",
+      "name": "Enrique Montes Araujo",
+      "profession": "Web Developer",
+      "profileUrl": "https://www.upwork.com/freelancers/enriqueadelino",
+      "skills": ["Next.js", "Gatsby.js", "React", "GoHighLevel", "JavaScript", "Typescript", "Tailwind CSS", "Strapi", "Node.js", "Git", "Github", "Wordpress"],
+      "summary": "I'm Enrique Montes, a Full-Stack Developer with 30+ years in IT and 5+ years of focused experience using React, Next.js, and Gatsby...",
+      "portfolio": [
+        {
+          "title": "Peters – App Optimization & Enhancement",
+          "link": "https://www.upwork.com/freelancers/enriqueadelino?p=1879728081945686016",
+          "description": "I resolved critical issues with Gravity Forms data integration from WordPress, stabilizing the app's functionality...",
+          "skills": ["Gatsby.js", "React", "JavaScript", "Typescript", "Wordpress", "Node.js", "Git", "Github"]
+        },
+        {
+          "title": "Bridge Artists – Website Maintenance & Data Modeling",
+          "link": "https://www.upwork.com/freelancers/enriqueadelino?p=1772995277844119552",
+          "description": "I was hired to fix existing errors on a Gatsby site using Contentful, hosted on Netlify...",
+          "skills": ["Gatsby.js", "React", "JavaScript", "Typescript", "Contentful", "Node.js", "Git", "Github", "Sass", "Netlify"]
+        }
+      ]
     }
   ]
 }

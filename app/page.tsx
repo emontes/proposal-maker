@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import {
@@ -13,10 +13,13 @@ import {
 import { Card } from '@/components/ui/card';
 import { Loader2, Copy, Download, Sparkles } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import templates from '@/data/templates.json';
+import profiles from '@/data/profile.json';
 
 export default function Home() {
   const [jobDescription, setJobDescription] = useState('');
   const [template, setTemplate] = useState('standard');
+  const [selectedProfile, setSelectedProfile] = useState(profiles.profiles[0]?.id || '');
   const [proposal, setProposal] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
@@ -31,14 +34,27 @@ export default function Home() {
       return;
     }
 
+    if (!selectedProfile) {
+      toast({
+        title: 'Error',
+        description: 'Please select a profile',
+        variant: 'destructive',
+      });
+      return;
+    }
+
     setIsLoading(true);
     try {
-      console.log('Making request with:', { jobDescription, template });
+      console.log('Making request with:', { jobDescription, template, profileId: selectedProfile });
       
       const response = await fetch('/api/generateProposal', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ jobDescription, template }),
+        body: JSON.stringify({ 
+          jobDescription, 
+          template,
+          profileId: selectedProfile 
+        }),
       });
 
       const data = await response.json();
@@ -108,6 +124,27 @@ export default function Home() {
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium mb-2">
+                  Profile
+                </label>
+                <Select
+                  value={selectedProfile}
+                  onValueChange={setSelectedProfile}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a profile" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {profiles.profiles.map((profile) => (
+                      <SelectItem key={profile.id} value={profile.id}>
+                        {profile.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">
                   Job Description
                 </label>
                 <Textarea
@@ -130,8 +167,11 @@ export default function Home() {
                     <SelectValue placeholder="Select a template" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="standard">Standard Proposal</SelectItem>
-                    <SelectItem value="ask-questions">Ask Questions</SelectItem>
+                    {Object.entries(templates).map(([key, template]) => (
+                      <SelectItem key={key} value={key}>
+                        {template.name}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </div>
