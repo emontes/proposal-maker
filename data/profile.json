@@ -5,7 +5,7 @@
       "name": "Enrique Montes",
       "profession": "Full-Stack Developer",
       "profileUrl": "https://www.upwork.com/freelancers/enriqueadelino",
-      "skills": ["Next.js", "Gatsby.js", "React", "GoHighLevel", "JavaScript", "Typescript", "Tailwind CSS", "Strapi", "Node.js", "Git", "Github", "Wordpress"],
+      "skills": ["Next.js", "Gatsby.js", "React", "GoHighLevel", "JavaScript", "Typescript", "Tailwind CSS", "Strapi", "Node.js", "Git", "Github", "Wordpress", "Vercel", "Netlify"],
       "summary": "Seeking lightning-fast websites that enhance performance, attract users, and boost online revenue?\n\n I build Next.js and Gatsby solutions that address your most significant web challenges.\n With over 30 years in IT, plus 5 years of React mastery.\n I deliver blazing-fast, SEO-focused experiences that elevate your online brand and visibility.\n Harness SSR, SSG, and dynamic routing for speed, scalability, and user satisfaction.\n Let me reduce load times, amplify conversions, and reinforce your online presence.\n\n Ready to elevate your business with a future-proof solution built for success?\n\nI'm Enrique Montes, a Full-Stack Developer bringing over 30 years of IT expertise and 5+ years of modern React experience. By leveraging Server-Side Rendering (SSR), Static Site Generation (SSG), and Headless CMS (Strapi, Contentful, Sanity), I craft high-performance, SEO-friendly websites that excel in speed and user engagement.\n\n Here's how I can help your business thrive:\n\n- High-Performance Development: Crafting modern, scalable sites with Next.js or Gatsby.\n- Headless CMS Integration: Connecting Strapi, Contentful, or Sanity for easy content management.\n- UI/UX Design: Building engaging interfaces with Tailwind CSS, Styled-Components, and responsive layouts.\n- API-Driven Architectures: Utilizing REST or GraphQL for robust, data-centric applications.\n\n Let's collaborate and create a lightning-fast, scalable web solution tailored to your goals. Message me on Upwork now, and we'll turn your vision into a high-performance reality. \n\n Core Skills:\n\n Front-End Development:\n- JavaScript (ES7+, Babel)\n- React.js\n- Next.js (App Router, Static/Server-Side Rendering)\n- Gatsby.js (Static Site Generation)\n- HTML5, CSS3, SCSS\n- Tailwind CSS, Styled-components\n- UI Frameworks: Material UI, Bootstrap, Reactstrap\n\n Backend & API Development:\n- RESTful APIs & GraphQL\n- Node.js, Express.js\n- Headless CMS integration: Strapi, Contentful, WordPress\n- Apigility, Laminas from Zend\n\n CMS & Headless Solutions:\n- WordPress (Gatsby or Next.js Sourcing WordPress)\n- Strapi (Preferred for Headless CMS)\n- Sanity, Contentful, Prismic\n\n Hosting & Deployment:\n- Vercel, Netlify, AWS, Digital Ocean\n- Serverless Deployments\n- CI/CD Pipelines\n\n Search & Optimization:\n- Typesense, Algolia\n- SEO Optimization for Static Sites\n- Lighthouse Performance Tuning\n\n Development Tools & Workflows:\n- Git/GitHub, CI/CD\n- Visual Studio Code, Docker\n\n Experience:\nWith extensive experience developing full-stack applications for diverse clients, I have a proven track record of delivering high-quality solutions built on Next.js and Gatsby.js. From building blazing-fast static sites to crafting dynamic, API-driven web apps, I ensure that every project is optimized for performance and scalability.\n\n Why Work with Me?\n\n Focused Expertise: Specialized in Next.js and Gatsby, ensuring I provide tailored solutions with the most advanced features.\n Reliable & Transparent: I prioritize clear communication and deliver regular updates, ensuring transparency throughout the development process.\n Performance-Driven: I implement best practices to achieve high-performance, SEO-friendly web applications that exceed client expectations.",
       "portfolio": [
         {
@@ -42,7 +42,25 @@
           "title": "Osmocote - Gatsby Update from V2 to V5",
           "link": "https://www.upwork.com/fl/~011b1de3cb73e46439?p=1879727247639900160",
           "description": "I addressed technical debt in an app integrating WordPress data with an outdated Gatsby version by upgrading it to the latest version. This update enhanced performance and compatibility. Subsequently, I conducted various developments across the app, improving functionality and user experience. Key skills utilized: Gatsby.js, GraphQL, React, WordPress as CMS, and Netlify hosting solutions, ensuring the app's robust operation and maintainability.",
+          "skills": ["Next.js", "React", "JavaScript", "Strapi", "Node.js", "Git", "Github", "Tailwind CSS"]
+        },
+        {
+          "title": "Portfolio Website Showcasing Expertise in Modern Web Development",
+          "link": "https://enriquemontes.com",
+          "description": "A personal portfolio built with Next.js, TypeScript, Tailwind CSS, and Strapi to highlight my skills as a Full Stack Developer. This project demonstrates advanced proficiency in creating responsive, performant, and scalable web applications. These technologies ensure seamless user experiences, optimized performance, and easy content management—qualities I can bring to your next project",
           "skills": ["Gatsby.js", "React", "JavaScript", "Wordpress", "Node.js", "Git", "Github", "GraphQL"]
+        },
+        {
+          "title": "Frida Travel: Vacation Deals Platform for Mexican Destinations",
+          "link": "https://frida-travel.netlify.app/en/",
+          "description": "A dynamic travel website built with Gatsby.js and Contentful to provide seamless access to vacation deals in destinations like Mazatlán, Cozumel, and the Mayan Riviera. This project demonstrates expertise in creating fast, interactive, and visually appealing web applications with modern tools.",
+          "skills": ["Gatsby.js", "React", "JavaScript", "Contentful", "Node.js", "Git", "Github", "GraphQL","Full-Stack Development"]
+        },
+        {
+          "title": "Turista Mexico: Comprehensive Travel Guide to Mexico",
+          "link": "https://www.turista.com.mx/",
+          "description": "Developed using PHP and MySQL, Turista Mexico offers travelers an extensive guide to exploring Mexico's diverse destinations. This project showcases my ability to create robust, database-driven web applications that provide users with reliable and up-to-date travel information.",
+          "skills": ["PHP", "MySQL", "Full-Stack Development"]
         }
       ]
     },
@@ -51,7 +69,7 @@
       "name": "Enrique Montes Araujo",
       "profession": "Web Developer",
       "profileUrl": "https://www.upwork.com/freelancers/enriqueadelino",
-      "skills": ["Next.js", "Gatsby.js", "React", "GoHighLevel", "JavaScript", "Typescript", "Tailwind CSS", "Strapi", "Node.js", "Git", "Github", "Wordpress"],
+      "skills": ["Web Development", "Full-Stack Developer", "Front-end Developer", "Back-end Developer", "Web Application"],
       "summary": "I'm Enrique Montes, a Full-Stack Developer with 30+ years in IT and 5+ years of focused experience using React, Next.js, and Gatsby...",
       "portfolio": [
         {
