@@ -45,22 +45,46 @@
           "skills": ["Next.js", "React", "JavaScript", "Strapi", "Node.js", "Git", "Github", "Tailwind CSS"]
         },
         {
-          "title": "Portfolio Website Showcasing Expertise in Modern Web Development",
+          "title": "Multilingual Portfolio Website Built with Modern Web Technologies",
           "link": "https://enriquemontes.com",
-          "description": "A personal portfolio built with Next.js, TypeScript, Tailwind CSS, and Strapi to highlight my skills as a Full Stack Developer. This project demonstrates advanced proficiency in creating responsive, performant, and scalable web applications. These technologies ensure seamless user experiences, optimized performance, and easy content management—qualities I can bring to your next project",
-          "skills": ["Gatsby.js", "React", "JavaScript", "Wordpress", "Node.js", "Git", "Github", "GraphQL"]
+          "description": "A personal portfolio crafted with Next.js, TypeScript, Tailwind CSS, and Strapi, showcasing my Full Stack Development skills. Available in 5 languages, with Spanish and English meticulously translated by me, while other languages leverage automated translation. This ensures precise communication and global accessibility for potential clients.",
+          "skills": ["Gatsby.js", "React", "JavaScript", "Wordpress", "Node.js", "Git", "Github", "GraphQL","Spanish Translation", "English Translation", "Full-Stack Development"]
         },
         {
           "title": "Frida Travel: Vacation Deals Platform for Mexican Destinations",
           "link": "https://frida-travel.netlify.app/en/",
           "description": "A dynamic travel website built with Gatsby.js and Contentful to provide seamless access to vacation deals in destinations like Mazatlán, Cozumel, and the Mayan Riviera. This project demonstrates expertise in creating fast, interactive, and visually appealing web applications with modern tools.",
-          "skills": ["Gatsby.js", "React", "JavaScript", "Contentful", "Node.js", "Git", "Github", "GraphQL","Full-Stack Development"]
+          "skills": ["Gatsby.js", "React", "JavaScript", "Contentful", "Node.js", "Git", "Github", "GraphQL","Full-Stack Development", "Spanish Translation", "English Translation"]
         },
         {
           "title": "Turista Mexico: Comprehensive Travel Guide to Mexico",
           "link": "https://www.turista.com.mx/",
           "description": "Developed using PHP and MySQL, Turista Mexico offers travelers an extensive guide to exploring Mexico's diverse destinations. This project showcases my ability to create robust, database-driven web applications that provide users with reliable and up-to-date travel information.",
-          "skills": ["PHP", "MySQL", "Full-Stack Development"]
+          "skills": ["PHP", "MySQL", "Apache", "Full-Stack Development","Spanish Translation", "English Translation"]
+        },
+        {
+          "title": "Turista Estado de México: Explore the Wonders of the State of Mexico",
+          "link": "https://edomexico.turista.com.mx/",
+          "description": "A tourism website built with Gatsby, Tailwind CSS, Styled Components, and GraphQL, hosted on Netlify. It provides detailed information on top destinations, hotels, and events in the State of Mexico, helping visitors plan unforgettable trips with a fast and visually appealing user experience.",
+          "skills": ["Gatsby.js", "Tailwind CSS", "GraphQL", "Netlify", "API Integration", "Full-Stack Development","Spanish Translation", "English Translation"]
+        },
+        {
+          "title": "Turista Chiapas: Your Gateway to the Beauty of Chiapas",
+          "link": "https://chiapas.turista.com.mx/",
+          "description": "A tourism website built with Gatsby, Tailwind CSS, Styled Components, and GraphQL, hosted on Netlify. Focused on Chiapas, it provides detailed information on breathtaking natural wonders like Sumidero Canyon and Palenque, along with hotels, events, and cultural highlights, helping visitors plan memorable trips to this stunning region.",
+          "skills": ["Gatsby.js", "Tailwind CSS", "GraphQL", "Netlify", "API Integration", "Full-Stack Development","Spanish Translation", "English Translation"]
+        },
+        {
+          "title": "THoteles.com: Discover and Book Unique Stays (Available in Spanish)",
+          "link": "https://thoteles.com",
+          "description": "Built with WordPress, PHP, MySQL, and hosted on Nginx with Digital Ocean, THoteles.com is a Spanish-language platform that connects travelers with unique accommodations in the world’s most enchanting destinations. From vibrant city getaways to peaceful beach retreats, it offers a seamless experience to find and book the perfect stay.",
+          "skills": ["Wordpress", "PHP", "MySQL", "NGINX", "Digital Ocean", "Full-Stack Development","Spanish Translation"]
+        },
+        {
+          "title": "Gano Excel Cancun: Health and Wellness in Every Cup",
+          "link": "https://ganocancun.com",
+          "description": "Developed with Next.js, React, and Tailwind CSS, and hosted on Vercel, Gano Excel Cancun promotes health and wellness through its premium coffee products. The bilingual website (Spanish/English) provides a seamless user experience, connecting customers to the benefits of Ganoderma-infused beverages and enhancing their journey toward a healthier lifestyle.",
+          "skills": ["Next.js", "REact", "Tailwind CSS", "Vercel", "Full-Stack Development","Spanish Translation"]
         }
       ]
     },
