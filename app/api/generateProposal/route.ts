@@ -52,7 +52,8 @@ export async function POST(req: Request) {
 
     const initialText = `
 Give me a cover letter for a job in Upwork. 
-Make something that catch the customer interest in the first two rows. 
+Make something that catch the customer interest in the first two rows.
+Start with an emoji related to work. 
 Write the text in plain text with bold formatting using Mathematical Bold Unicode characters for all parts that need to be bold. 
 Ensure the entire text uses plain text formatting so it can be copied without markdown or HTML.
 
