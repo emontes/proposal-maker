@@ -15,11 +15,13 @@ import { Loader2, Copy, Download, Sparkles, X } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import templates from '@/data/templates.json';
 import profiles from '@/data/profile.json';
+import companies from '@/data/companies.json';
 
 export default function Home() {
   const [jobDescription, setJobDescription] = useState('');
   const [template, setTemplate] = useState(Object.keys(templates)[0]);
   const [selectedProfile, setSelectedProfile] = useState(profiles.profiles[0]?.id || '');
+  const [selectedCompany, setSelectedCompany] = useState(companies.companies[0]?.id || '');
   const [proposal, setProposal] = useState('');
   const [isGeneratingProposal, setIsGeneratingProposal] = useState(false);
   const [isGeneratingPrompt, setIsGeneratingPrompt] = useState(false);
@@ -60,7 +62,8 @@ export default function Home() {
         body: JSON.stringify({ 
           jobDescription, 
           template,
-          profileId: selectedProfile 
+          profileId: selectedProfile,
+          companyId: selectedCompany
         }),
       });
 
@@ -120,6 +123,7 @@ export default function Home() {
           template,
           profileId: selectedProfile,
           returnPromptOnly: true,
+          companyId: selectedCompany
         }),
       });
 
@@ -177,6 +181,7 @@ export default function Home() {
     setIsButtonsDisabled(false);
     setTemplate(Object.keys(templates)[0]);
     setSelectedProfile(profiles.profiles[0]?.id || '');
+    setSelectedCompany(companies.companies[0]?.id || '');
   };
 
   return (
@@ -194,6 +199,22 @@ export default function Home() {
 
           <Card className="p-6 space-y-6">
             <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium mb-2">Company</label>
+                <Select value={selectedCompany} onValueChange={setSelectedCompany}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a company" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {companies.companies.map((company) => (
+                      <SelectItem key={company.id} value={company.id}>
+                        {company.company}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
               <div>
                 <label className="block text-sm font-medium mb-2">Profile</label>
                 <Select value={selectedProfile} onValueChange={setSelectedProfile}>

@@ -1,0 +1,14 @@
+{
+  "companies": [
+    {
+      "id": "upwork",
+      "company": "Upwork",
+      "initialText": "Give me a cover letter for a job in Upwork. \nMake something that catch the customer interest in the first two rows.\nStart with an emoji related to work. \nDon't start using phrases like \"As a seazoned professional\" or \"I am excited to apply for this position\".\nWrite the text in plain text with bold formatting using Mathematical Bold Unicode characters for all parts that need to be bold. \nEnsure the entire text uses plain text formatting so it can be copied without markdown or HTML."
+    },
+    {
+      "id": "freelancer",
+      "company": "Freelancer.com",
+      "initialText": "Give me a cover letter for a job in Freelancer.com. \nMake something that catch the customer interest in the first two rows.\nDon't start using phrases like \"As a seazoned professional\" or \"I am excited to apply for this position\".\nEnsure the entire text uses plain text formatting so it can be copied without markdown or HTML.\nMake sure everything is in plain text without bold or any special characters.\nUse less than 1500 characters.\n"
+    }
+  ]
+} 

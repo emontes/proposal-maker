@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card } from '@/components/ui/card'; 
-import { Plus, Pencil, Trash2, Save } from 'lucide-react';
+import { Plus, Pencil, Trash2, Save, Clipboard } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import defaultProfiles from '@/data/profile.json';
 
@@ -156,78 +156,99 @@ function ProfileEditor({
       portfolio: []
     }
   );
+  const [jsonView, setJsonView] = useState<string>('');
+
+  const handlePasteToJson = () => {
+    const jsonData = JSON.stringify(formData, null, 2);
+    setJsonView(jsonData);
+  };
 
   return (
-    <div className="fixed inset-0 bg-background/80 backdrop-blur-sm">
-      <div className="fixed inset-y-0 right-0 w-full max-w-xl bg-background shadow-lg p-6 overflow-y-auto">
-        <h3 className="text-lg font-medium mb-4">
-          {profile ? 'Edit Profile' : 'New Profile'}
-        </h3>
+    <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50">
+      <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] w-full max-w-2xl">
+        <Card className="p-6">
+          <h3 className="text-lg font-medium mb-4">
+            {profile ? 'Edit Profile' : 'New Profile'}
+          </h3>
 
-        <div className="space-y-4">
-          <div>
-            <label className="text-sm font-medium">ID</label>
-            <Input
-              value={formData.id}
-              onChange={e => setFormData({ ...formData, id: e.target.value })}
-              placeholder="unique-profile-id"
-            />
+          <div className="space-y-4">
+            <div>
+              <label className="text-sm font-medium">ID</label>
+              <Input
+                value={formData.id}
+                onChange={e => setFormData({ ...formData, id: e.target.value })}
+                placeholder="unique-profile-id"
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-medium">Name</label>
+              <Input
+                value={formData.name}
+                onChange={e => setFormData({ ...formData, name: e.target.value })}
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-medium">Profession</label>
+              <Input
+                value={formData.profession}
+                onChange={e => setFormData({ ...formData, profession: e.target.value })}
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-medium">Profile URL</label>
+              <Input
+                value={formData.profileUrl}
+                onChange={e => setFormData({ ...formData, profileUrl: e.target.value })}
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-medium">Skills (comma-separated)</label>
+              <Input
+                value={formData.skills?.join(', ')}
+                onChange={e => setFormData({ 
+                  ...formData, 
+                  skills: e.target.value.split(',').map(s => s.trim()) 
+                })}
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-medium">Summary</label>
+              <Textarea
+                value={formData.summary}
+                onChange={e => setFormData({ ...formData, summary: e.target.value })}
+                className="min-h-[100px]"
+              />
+            </div>
+
+            <div className="flex justify-end space-x-2">
+              <Button variant="outline" onClick={onCancel}>
+                Cancel
+              </Button>
+              <Button onClick={() => onSave(formData as Profile)}>
+                <Save className="w-4 h-4 mr-2" />
+                Save Profile
+              </Button>
+              <Button variant="outline" onClick={handlePasteToJson}>
+                <Clipboard className="w-4 h-4 mr-2" />
+                Paste to Json
+              </Button>
+            </div>
           </div>
 
-          <div>
-            <label className="text-sm font-medium">Name</label>
-            <Input
-              value={formData.name}
-              onChange={e => setFormData({ ...formData, name: e.target.value })}
-            />
-          </div>
-
-          <div>
-            <label className="text-sm font-medium">Profession</label>
-            <Input
-              value={formData.profession}
-              onChange={e => setFormData({ ...formData, profession: e.target.value })}
-            />
-          </div>
-
-          <div>
-            <label className="text-sm font-medium">Profile URL</label>
-            <Input
-              value={formData.profileUrl}
-              onChange={e => setFormData({ ...formData, profileUrl: e.target.value })}
-            />
-          </div>
-
-          <div>
-            <label className="text-sm font-medium">Skills (comma-separated)</label>
-            <Input
-              value={formData.skills?.join(', ')}
-              onChange={e => setFormData({ 
-                ...formData, 
-                skills: e.target.value.split(',').map(s => s.trim()) 
-              })}
-            />
-          </div>
-
-          <div>
-            <label className="text-sm font-medium">Summary</label>
-            <Textarea
-              value={formData.summary}
-              onChange={e => setFormData({ ...formData, summary: e.target.value })}
-              className="min-h-[100px]"
-            />
-          </div>
-
-          <div className="flex justify-end space-x-2">
-            <Button variant="outline" onClick={onCancel}>
-              Cancel
-            </Button>
-            <Button onClick={() => onSave(formData as Profile)}>
-              <Save className="w-4 h-4 mr-2" />
-              Save Profile
-            </Button>
-          </div>
-        </div>
+          {jsonView && (
+            <div className="mt-6 p-4 bg-gray-100 rounded-lg">
+              <h4 className="font-medium mb-2">Profile JSON:</h4>
+              <pre className="text-sm font-mono whitespace-pre-wrap">
+                {jsonView}
+              </pre>
+            </div>
+          )}
+        </Card>
       </div>
     </div>
   );

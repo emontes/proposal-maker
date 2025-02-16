@@ -2,6 +2,7 @@ import { OpenAI } from "openai";
 import { NextResponse } from "next/server"; // Import NextResponse
 import profiles from "@/data/profile.json";
 import templates from "@/data/templates.json";
+import companies from "@/data/companies.json";
 
 // Validate API key before creating the client
 if (!process.env.OPENAI_API_KEY) {
@@ -14,7 +15,7 @@ const openai = new OpenAI({
 
 export async function POST(req: Request) {
   try {
-    const { jobDescription, template, profileId, returnPromptOnly } = await req.json();
+    const { jobDescription, template, profileId, returnPromptOnly, companyId } = await req.json();
 
     if (!jobDescription) {
       return NextResponse.json(
@@ -27,6 +28,15 @@ export async function POST(req: Request) {
       return NextResponse.json(
         { error: "Profile ID is required" },
         { status: 400 }
+      );
+    }
+
+    const selectedCompany = companies.companies.find((c) => c.id === companyId);
+
+    if (!selectedCompany) {
+      return NextResponse.json(
+        { error: `Company with ID "${companyId}" not found` },
+        { status: 404 }
       );
     }
 
@@ -50,12 +60,7 @@ export async function POST(req: Request) {
       )
       .join("\n");
 
-    const initialText = `
-Give me a cover letter for a job in Upwork. 
-Make something that catch the customer interest in the first two rows.
-Start with an emoji related to work. 
-Write the text in plain text with bold formatting using Mathematical Bold Unicode characters for all parts that need to be bold. 
-Ensure the entire text uses plain text formatting so it can be copied without markdown or HTML.
+    const initialText = `${selectedCompany.initialText}
 
 This is my profile:
 - **Name**: ${selectedProfile.name}

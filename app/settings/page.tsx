@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card } from '@/components/ui/card';
 import ProfileManager from '@/components/settings/ProfileManager';
 import TemplateManager from '@/components/settings/TemplateManager';
+import CompanyManager from '@/components/settings/CompanyManager';
 
 export default function SettingsPage() {
   return (
@@ -15,6 +16,7 @@ export default function SettingsPage() {
         <TabsList>
           <TabsTrigger value="profiles">Profiles</TabsTrigger>
           <TabsTrigger value="templates">Templates</TabsTrigger>
+          <TabsTrigger value="companies">Companies</TabsTrigger>
         </TabsList>
 
         <TabsContent value="profiles">
@@ -26,6 +28,12 @@ export default function SettingsPage() {
         <TabsContent value="templates">
           <Card className="p-6">
             <TemplateManager />
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="companies">
+          <Card className="p-6">
+            <CompanyManager />
           </Card>
         </TabsContent>
       </Tabs>
