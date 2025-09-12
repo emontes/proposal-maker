@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>curri.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<hr>
+<h1 id="enrique-adelino-montes-araujo"><strong>Enrique Adelino Montes Araujo</strong></h1>
+<p><strong>Ingeniero en Sistemas Computacionales | Desarrollador Web | Consultor Tecnológico</strong></p>
+<hr>
+<h2 id="informaci%C3%B3n-de-contacto"><strong>Información de Contacto</strong></h2>
+<p>📧 <strong>Email:</strong> emontes@turista.com.mx<br>
+📞 <strong>Teléfono:</strong> (998) 165.4313<br>
+🌐 <strong>Sitio Web:</strong> <a href="https://enriquemontes.com">enriquemontes.com</a><br>
+📍 <strong>Dirección:</strong> Av. Nizuc Casa 14 Mza 2 Lt 29, SM 17 Las Casas del Acueducto, Cancún, Quintana Roo 77505</p>
+<hr>
+<h2 id="perfil-profesional"><strong>Perfil Profesional</strong></h2>
+<p>Ingeniero en Sistemas Computacionales con más de 30 años de experiencia en desarrollo de software, administración de sistemas y consultoría tecnológica. Especializado en desarrollo web, aplicaciones móviles, y optimización de motores de búsqueda (SEO). Fundador y CEO de <strong>Turista.com.mx</strong>, un sistema de guías turísticas reconocido a nivel nacional. Amplia experiencia en liderazgo de equipos remotos, desarrollo de aplicaciones modernas con tecnologías como <strong>React.js</strong>, <strong>Gatsby</strong>, y <strong>Zend Framework</strong>, y manejo de servidores <strong>Apache</strong> y <strong>Nginx</strong> bajo <strong>Linux</strong>.</p>
+<hr>
+<h2 id="habilidades-t%C3%A9cnicas"><strong>Habilidades Técnicas</strong></h2>
+<ul>
+<li><strong>Lenguajes de Programación:</strong> PHP, JavaScript, Java, Delphi, Clipper, Dbase, SQL.</li>
+<li><strong>Frameworks y Librerías:</strong> Zend Framework, React.js, Gatsby, Node.js.</li>
+<li><strong>Bases de Datos:</strong> MySQL, SQL Server, Paradox, Access.</li>
+<li><strong>Sistemas Operativos:</strong> Linux (Ubuntu, Debian), Windows, MacOS.</li>
+<li><strong>Herramientas de Desarrollo:</strong> GitHub, Contentful, Docker.</li>
+<li><strong>CMS:</strong> WordPress, Joomla, Drupal, Strapi, Contentful, Sanity.</li>
+<li><strong>SEO y Marketing Digital:</strong> Optimización de motores de búsqueda, análisis de tráfico web.</li>
+<li><strong>Idiomas:</strong> Español (nativo), Inglés (avanzado), Italiano (nociones).</li>
+</ul>
+<p><em>Para conocer más sobre mis habilidades técnicas, visita:</em> <a href="https://enriquemontes.com/resources/">https://enriquemontes.com/resources/</a></p>
+<hr>
+<h2 id="proyectos-destacados"><strong>Proyectos Destacados</strong></h2>
+<p>Estos son algunos de mis desarrollos favoritos, que reflejan mi experiencia y creatividad en el ámbito tecnológico:</p>
+<h3 id="dstrnet"><strong>DSTR.net</strong></h3>
+<p><strong>Desarrollo de Sistemas Tiempo.Resultados</strong><br>
+Sitio web diseñado para ofrecer servicios de consultoría y soluciones digitales avanzadas. Utilizando un enfoque moderno y tecnológico, DSTR.net se enfoca en la implementación eficiente de estrategias digitales para optimizar el rendimiento y los resultados de negocios.<br>
+<strong>URL:</strong> <a href="https://inicio.dstr.net">https://inicio.dstr.net</a><br>
+<strong>Fecha:</strong> Noviembre de 2024</p>
+<h3 id="turistacommx"><strong>Turista.com.mx</strong></h3>
+<p><strong>La guía de México en Internet</strong><br>
+Sistema de guías turísticas en línea con enfoque en los estados de Puebla, Chiapas, Estado de México, Tabasco y Quintana Roo. Reconocido como uno de los mejores a nivel nacional por empresas como Google.<br>
+<strong>URL:</strong> <a href="https://www.turista.com.mx">https://www.turista.com.mx</a><br>
+<strong>Tecnologías:</strong> PHP, MySQL, Zend Framework, Apigility, CSS 3, Apache, Digital Ocean<br>
+<strong>Fecha:</strong> Febrero de 2016</p>
+<h3 id="turista-chiapas"><strong>Turista Chiapas</strong></h3>
+<p><strong>Portal turístico dedicado a Chiapas</strong><br>
+Ofrece información completa sobre destinos, hoteles, eventos y actividades, ayudando a los visitantes a descubrir la riqueza cultural y natural del estado. Ideal para planificar viajes inolvidables a esta fascinante región de México.<br>
+<strong>URL:</strong> <a href="https://chiapas.turista.com.mx">https://chiapas.turista.com.mx</a><br>
+<strong>Tecnologías:</strong> Gatsby, Tailwind CSS, Styled Components, Apigility, GraphQL, Netlify<br>
+<strong>Fecha:</strong> Agosto de 2024</p>
+<h3 id="frida-travel"><strong>Frida Travel</strong></h3>
+<p><strong>Sitio para encontrar ofertas vacacionales</strong><br>
+Plataforma enfocada en ofertas vacacionales en Mazatlán, Cozumel y la Riviera Maya.<br>
+<strong>URL:</strong> <a href="https://frida-travel.netlify.app">https://frida-travel.netlify.app</a><br>
+<strong>Tecnologías:</strong> React, Gatsby, Styled Components, GraphQL, Contentful, Netlify<br>
+<strong>Fecha:</strong> Junio de 2020</p>
+<h3 id="thoteles"><strong>THoteles</strong></h3>
+<p><strong>Conéctate con experiencias únicas de alojamiento</strong><br>
+Plataforma para encontrar y reservar estancias ideales en los destinos más encantadores del mundo, desde escapadas urbanas hasta retiros en la playa.<br>
+<strong>URL:</strong> <a href="https://thoteles.com">https://thoteles.com</a><br>
+<strong>Tecnologías:</strong> PHP, MySQL, WordPress, Nginx, Digital Ocean<br>
+<strong>Fecha:</strong> Febrero de 2024</p>
+<h3 id="fonda-de-santa-clara"><strong>Fonda de Santa Clara</strong></h3>
+<p><strong>El Restaurante de Mayor tradición en Puebla</strong><br>
+Sitio web del restaurante con más tradición en Puebla, que ofrece información sobre su historia, menú y servicios.<br>
+<strong>URL:</strong> <a href="https://fondadesantaclara.com">https://fondadesantaclara.com</a><br>
+<strong>Tecnologías:</strong> PHP, MySQL, WordPress, Nginx, Digital Ocean<br>
+<strong>Fecha:</strong> En desarrollo</p>
+<p><em>Para conocer más sobre mis proyectos, visita:</em> <a href="https://enriquemontes.com/developments/">https://enriquemontes.com/developments/</a></p>
+<hr>
+<h2 id="experiencia-laboral"><strong>Experiencia Laboral</strong></h2>
+<h3 id="fundador-ceo-y-senior-engineer"><strong>Fundador, CEO y Senior Engineer</strong></h3>
+<p><strong>Turista.com.mx S.A. de C.V.</strong> | <strong>2008 - Actualidad</strong></p>
+<ul>
+<li>Fundador y líder del proyecto <strong>Turista.com.mx</strong>, un sistema de guías turísticas en línea reconocido como uno de los mejores a nivel nacional por empresas como Google.</li>
+<li>Desarrollo y mantenimiento de sistemas web y aplicaciones móviles para turismo, incluyendo <strong>FridaTravel.com</strong> (ofertas de viaje para mercados de USA y Canadá).</li>
+<li>Coordinación de equipos remotos utilizando <strong>GitHub</strong> y <strong>WhatsApp</strong>.</li>
+<li>Modelado de datos en <strong>Contentful</strong> y desarrollo de aplicaciones <strong>Progressive Web Apps (PWA)</strong> con <strong>Gatsby</strong>.</li>
+</ul>
+<h3 id="front-end-developer"><strong>Front End Developer</strong></h3>
+<p><strong>El Cid Vacations Club</strong> | <strong>2019 - 2021</strong></p>
+<ul>
+<li>Desarrollo de interfaces de usuario modernas y responsivas utilizando <strong>React.js</strong>.</li>
+<li>Colaboración con equipos de marketing para mejorar la experiencia del usuario y optimizar el rendimiento de las aplicaciones web.</li>
+</ul>
+<h3 id="internet-technologies-manager"><strong>Internet Technologies Manager</strong></h3>
+<p><strong>Club Solaris Cancún / Los Cabos</strong> | <strong>2004 - 2006</strong></p>
+<ul>
+<li>Administración de servidores remotos y desarrollo del sistema base <strong>www.clubsolaris.com</strong>, que sirvió como plataforma operativa del club.</li>
+<li>Creación de sistemas multimedia y administrativos para la promoción de resorts y clubes.</li>
+<li>Capacitación y asesoría al personal en el uso de tecnologías web.</li>
+</ul>
+<h3 id="asesor-en-inform%C3%A1tica"><strong>Asesor en Informática</strong></h3>
+<p><strong>OVC Cancún Quintana Roo</strong> | <strong>2002 - 2004</strong></p>
+<ul>
+<li>Desarrollo del sitio oficial de Cancún <strong>www.cancun.info</strong>, que se convirtió en la plataforma principal de promoción turística del destino.</li>
+<li>Creación de sistemas administrativos y multimedia para la promoción del turismo en la región.</li>
+</ul>
+<h3 id="revenue-manager"><strong>Revenue Manager</strong></h3>
+<p><strong>Hotel Tucancun Beach Quintana Roo</strong> | <strong>2003</strong></p>
+<ul>
+<li>Implementación de un sistema de reservaciones en línea en <strong>www.tucancunbeach.com</strong>.</li>
+<li>Análisis de tarifas y estrategias de pricing para maximizar ingresos.</li>
+</ul>
+<h3 id="administrador-de-la-red-municipal"><strong>Administrador de la Red Municipal</strong></h3>
+<p><strong>H. Ayuntamiento de Solidaridad Quintana Roo</strong> | <strong>2001 - 2002</strong></p>
+<ul>
+<li>Administración de redes telefónicas y de cómputo del municipio.</li>
+<li>Desarrollo y mantenimiento del sistema de internet municipal.</li>
+</ul>
+<hr>
+<h2 id="experiencia-en-desarrollo-de-sistemas-a%C3%B1os-90"><strong>Experiencia en Desarrollo de Sistemas (Años 90)</strong></h2>
+<ul>
+<li><strong>Sistema Administrativo DSTR:</strong> Desarrollo en Delphi con Paradox para control administrativo.</li>
+<li><strong>Sistema de Control de Quejas:</strong> Implementado para el Consejo de Participación Ciudadana del H. Ayuntamiento de Puebla (Clipper).</li>
+<li><strong>Concur:</strong> Sistema de control de concursos y registro de calificaciones, utilizado en festivales como el Chile en Nogada y Mole Poblano (Clipper).</li>
+<li><strong>Dora:</strong> Sistema de control de crédito, cobranza e inventarios para mueblerías (Clipper).</li>
+<li><strong>Gaso:</strong> Sistema de control administrativo para gasolineras (Clipper).</li>
+</ul>
+<hr>
+<h2 id="formaci%C3%B3n-acad%C3%A9mica"><strong>Formación Académica</strong></h2>
+<ul>
+<li><strong>Ingeniero en Sistemas Computacionales</strong><br>
+Benemérita Universidad Autónoma de Puebla (1992).</li>
+<li><strong>Técnico en Electrónica Computacional</strong><br>
+Centro de Desarrollo Profesional de Puebla (1990).</li>
+<li><strong>Programador Analista y Capturista</strong><br>
+System Club de Puebla (1986).</li>
+<li><strong>Estudios Superiores en Música</strong><br>
+Conservatorio de Música y Declamación del Estado de Puebla (1980-1988).</li>
+</ul>
+<hr>
+<h2 id="actividades-profesionales-adicionales"><strong>Actividades Profesionales Adicionales</strong></h2>
+<ul>
+<li>Fundador de <strong>Desarrollo de Sistemas Tiempo.Resultados (DSTR)</strong>, empresa dedicada a la asesoría en cómputo y venta de equipos (1990).</li>
+<li>Asesoría a empresas como <strong>Fonda de Santa Clara</strong>, <strong>Muebles Doraber</strong>, y <strong>Constructora Horeb</strong> en implementación de sistemas de control y redes internas.</li>
+<li>Impartición de cursos en la Universidad Interamericana A.C. sobre introducción a la computación y lenguajes de programación (1987-1991).</li>
+</ul>
+<hr>
+<h2 id="certificaciones"><strong>Certificaciones</strong></h2>
+<ul>
+<li><strong>Zend Framework 1 y 2</strong></li>
+<li><strong>Zend Server</strong></li>
+</ul>
+<hr>
+
+</body>
+</html>
