@@ -5,9 +5,15 @@
       "name": "Enrique Montes",
       "profession": "Full-Stack Developer",
       "profileUrl": "https://www.upwork.com/freelancers/enriqueadelino",
-      "skills": ["Next.js", "Gatsby.js", "React", "GoHighLevel", "JavaScript", "Typescript", "Tailwind CSS", "Strapi", "Node.js", "Git", "Github", "Wordpress", "Vercel", "Netlify"],
+      "skills": ["N8n", "Next.js", "Gatsby.js", "React", "GoHighLevel", "JavaScript", "Typescript", "Tailwind CSS", "Strapi", "Node.js", "Git", "Github", "Wordpress", "Vercel", "Netlify"],
       "summary": "Strapi developer expert in API development, custom plugins, migrations from WordPress/Contentful. Integrate Strapi with Next.js and automate workflows with n8n. Full-stack developer with 7 years experience building fast, scalable web applications. Focus on performance (SSR, SSG, ISR), SEO, clean architecture, CI/CD, Docker, AWS/Vercel. Results: 60% faster load times, 50% less content management time, 70% fewer manual tasks. Services: Full-stack development (Strapi + Next.js), CMS migrations, performance optimization, workflow automation, API development, DevOps. Tech stack: Strapi, Next.js, React, TypeScript, Tailwind CSS, Node.js, n8n, Docker, AWS, Vercel, Netlify.",
       "portfolio": [
+        {
+          "title": "Real Estate Lead Distribution System with N8n & Custom Dashboard",
+          "link": "",
+          "description": "Developed an automated lead distribution system for a real estate company integrating Sierra CRM, Follow Up Boss, and Slack. Built N8n workflows that capture leads via webhooks, enrich data from multiple APIs, and enable real-time agent claiming through Slack. Created a Next.js/Supabase admin dashboard for configuring distribution rules, custom messages, claim quotas, and agent management. System includes cooldown periods, credit restoration, and comprehensive analytics to optimize lead response times and agent performance.",
+          "skills": ["Next.js", "React", "JavaScript", "Typescript", "N8n", "Supabase", "Node.js", "Git", "Github", "API Integration","Slack", "Sierra CRM", "Follow Up Boss"]
+        },
         {
           "title": "Peters - App Optimization",
           "link": "https://www.upwork.com/freelancers/enriqueadelino?p=1879728081945686016",
