@@ -21,6 +21,12 @@
           "skills": ["Next.js", "Strapi", "React", "JavaScript", "Typescript", "Node.js", "Git", "Github"]
         },
         {
+          "title": "Temporary Email Service: React Frontend & Nginx/Dovecot Backend",
+          "link": "https://www.upwork.com/freelancers/enriqueadelino?p=1988731053047803904",
+          "description": "Developed a temporary email service allowing users to generate disposable email addresses valid for 30 minutes. Designed a responsive React frontend for seamless user interaction. Engineered the backend using Nginx on DigitalOcean, integrating Dovecot for email storage and Postfix for message delivery. Utilized Supabase to manage and store temporary emails and messages, ensuring scalability and reliability. The project emphasized security, efficiency, and user experience, providing a practical solution for short-term email needs.",
+          "skills": ["React", "JavaScript", "Typescript", "Node.js", "Git", "Github", "Nginx", "Dovecot", "Postfix", "Supabase"]
+        },
+        {
           "title": "Peters - App Optimization",
           "link": "https://www.upwork.com/freelancers/enriqueadelino?p=1879728081945686016",
           "description": "Fixed Gravity Forms WordPress integration, improved app performance with Gatsby.js and Netlify hosting.",
