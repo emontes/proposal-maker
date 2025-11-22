@@ -62,17 +62,36 @@ export async function POST(req: Request) {
 
     const initialText = `${selectedCompany.initialText}
 
-This is my profile:
-- **Name**: ${selectedProfile.name}
-- **Profession**: ${selectedProfile.profession}
-- **Profile URL**: ${selectedProfile.profileUrl}
-- **Summary**: ${selectedProfile.summary}
-- **Skills**: ${skills}
-- **Portfolio**:
+---
+
+MY PROFILE INFORMATION:
+
+Name: ${selectedProfile.name}
+Profession: ${selectedProfile.profession}
+Profile URL: ${selectedProfile.profileUrl}
+
+Professional Summary:
+${selectedProfile.summary}
+
+Core Skills:
+${skills}
+
+Relevant Portfolio Projects:
 ${portfolioItems}
 
-The job description is:
+---
+
+JOB DESCRIPTION TO ANALYZE AND RESPOND TO:
+
 ${jobDescription}
+
+---
+
+REMEMBER: 
+1. First EVALUATE if this job is worth applying to
+2. If not suitable, explain why in Spanish
+3. If suitable, create a compelling proposal with specific first 2 lines that reference their project details
+4. Keep the proposal focused, concise, and benefit-oriented
 `;
 
     const processedTemplate =
@@ -97,10 +116,19 @@ ${jobDescription}
 
     try {
       const completion = await openai.chat.completions.create({
-        messages: [{ role: "user", content: processedTemplate }],
+        messages: [
+          {
+            role: "system",
+            content: "You are an expert Upwork proposal writer who helps freelancers win more jobs. You analyze job postings critically and create highly personalized, results-focused proposals. You prioritize the client's needs and speak directly to their pain points. You avoid generic language and focus on specific, measurable outcomes."
+          },
+          {
+            role: "user",
+            content: processedTemplate
+          }
+        ],
         model: "gpt-4",
-        temperature: 0.7,
-        max_tokens: 500,
+        temperature: 0.8,
+        max_tokens: 800,
       });
 
       const proposal = completion.choices[0]?.message?.content;
