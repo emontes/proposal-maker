@@ -5,7 +5,7 @@
       "name": "Enrique Montes",
       "profession": "Full-Stack Developer",
       "profileUrl": "https://www.upwork.com/freelancers/enriqueadelino",
-      "skills": ["N8n", "Next.js", "React", "JavaScript", "Typescript", "Tailwind CSS", "Strapi", "Node.js", "Git", "Github", "Wordpress", "Vercel", "Netlify"],
+      "skills": ["Next.js", "Strapi", "N8n","React", "JavaScript", "Typescript", "Tailwind CSS",  "Node.js", "Git", "Github", "Wordpress", "Vercel", "Netlify"],
       "summary": "Strapi developer expert in API development, custom plugins, migrations from WordPress/Contentful. Integrate Strapi with Next.js and automate workflows with n8n. Full-stack developer with 7 years experience building fast, scalable web applications. Focus on performance (SSR, SSG, ISR), SEO, clean architecture, CI/CD, Docker, AWS/Vercel. Results: 60% faster load times, 50% less content management time, 70% fewer manual tasks. Services: Full-stack development (Strapi + Next.js), CMS migrations, performance optimization, workflow automation, API development, DevOps. Tech stack: Strapi, Next.js, React, TypeScript, Tailwind CSS, Node.js, n8n, Docker, AWS, Vercel, Netlify.",
       "portfolio": [
         {
