@@ -9,6 +9,18 @@
       "summary": "Strapi developer expert in API development, custom plugins, migrations from WordPress/Contentful. Integrate Strapi with Next.js and automate workflows with n8n. Full-stack developer with 7 years experience building fast, scalable web applications. Focus on performance (SSR, SSG, ISR), SEO, clean architecture, CI/CD, Docker, AWS/Vercel. Results: 60% faster load times, 50% less content management time, 70% fewer manual tasks. Services: Full-stack development (Strapi + Next.js), CMS migrations, performance optimization, workflow automation, API development, DevOps. Tech stack: Strapi, Next.js, React, TypeScript, Tailwind CSS, Node.js, n8n, Docker, AWS, Vercel, Netlify.",
       "portfolio": [
         {
+          "title": "El Turista Estado de Mexico – Tourism Portal front in Next.js",
+          "link": "https://edomexico.turista.com.mx",
+          "description": "My role. Full-Stack Developer & Project Lead - I built the complete frontend using Next.js + Tailwind CSS and connected it to a custom Apigility (PHP) REST API that powers all the content.\nThe result is a professional, fast, and visually appealing platform that helps both national and international tourists discover the rich natural, cultural, and historical heritage of the State of Mexico.",
+          "skills": ["Next.js", "React", "JavaScript", "Typescript", "N8n", "Node.js", "Git", "Github", "API Integration","Apigility", "PHP", "MySQL"]
+        },
+        {
+          "title": "El Turista Chiapas – Tourism Portal front in Next.js",
+          "link": "https://chiapas.turista.com.mx",
+          "description": "My role. Full-Stack Developer & Project Lead - I designed, developed the entire web application from scratch.\nProject description.\n\nThe website is a modern travel guide that promotes the state's main attractions.\n\nMain features:\n\nFully responsive design with mobile-first approach\nDynamic news section\nAttractive destination showcases\nFast and SEO-optimized architecture\n\nI built the complete frontend using Next.js + Tailwind CSS and connected it to a custom Apigility (PHP) REST API that powers all the content.\nThe result is a professional, fast, and visually appealing platform that helps both national and international tourists discover the natural and cultural richness of Chiapas.",
+          "skills": ["Next.js", "React", "JavaScript", "Typescript", "N8n", "Node.js", "Git", "Github", "API Integration","Apigility", "PHP", "MySQL"]
+        },
+        {
           "title": "Real Estate Lead Distribution System with N8n & Custom Dashboard",
           "link": "",
           "description": "Developed an automated lead distribution system for a real estate company integrating Sierra CRM, Follow Up Boss, and Slack. Built N8n workflows that capture leads via webhooks, enrich data from multiple APIs, and enable real-time agent claiming through Slack. Created a Next.js/Supabase admin dashboard for configuring distribution rules, custom messages, claim quotas, and agent management. System includes cooldown periods, credit restoration, and comprehensive analytics to optimize lead response times and agent performance.",
