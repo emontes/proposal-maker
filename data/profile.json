@@ -9,15 +9,33 @@
       "summary": "Strapi developer expert in API development, custom plugins, migrations from WordPress/Contentful. Integrate Strapi with Next.js and automate workflows with n8n. Full-stack developer with 7 years experience building fast, scalable web applications. Focus on performance (SSR, SSG, ISR), SEO, clean architecture, CI/CD, Docker, AWS/Vercel. Results: 60% faster load times, 50% less content management time, 70% fewer manual tasks. Services: Full-stack development (Strapi + Next.js), CMS migrations, performance optimization, workflow automation, API development, DevOps. Tech stack: Strapi, Next.js, React, TypeScript, Tailwind CSS, Node.js, n8n, Docker, AWS, Vercel, Netlify.",
       "portfolio": [
         {
+          "title": "Tatik Adelino – Artisanal Chocolate Online Store in Next.js",
+          "link": "https://www.tatikadelino.com/",
+          "description": "Full-Stack Developer – Designed, developed, and deployed a complete e-commerce platform from scratch for artisanal chocolates and traditional cacao products from Chiapas and Puebla, Mexico.\n\nKey features:\n\n• Responsive product catalog with elegant design\n• Clean, conversion-focused product detail pages\n• Mobile-first architecture optimized for all devices\n• High performance with SEO optimization for organic growth\n• Complete backend with authentication and inventory management\n\nTech stack: Next.js + Tailwind CSS frontend, Supabase backend (database, auth, product management).\n\nResult: A beautiful, fast e-commerce platform that increased online visibility and sales for authentic Mexican cacao heritage products.",
+          "skills": ["Next.js", "React", "JavaScript", "Typescript", "Node.js", "Git", "Github", "API Integration","Supabase", "e-commerce"]
+        },
+        {
+          "title": "El Turista Quintana Roo – Tourism Portal front in Next.js",
+          "link": "https://quintanaroo.turista.com.mx",
+          "description": "My role. Full-Stack Developer & Project Lead - I built the complete frontend using Next.js + Tailwind CSS and connected it to a custom Apigility (PHP) REST API that powers all the content.\\nThe platform showcases the state's top attractions: turquoise Caribbean beaches in Cancún, Playa del Carmen, Tulum and Cozumel, ancient Mayan ruins like Cobá, stunning cenotes, and sustainable destinations such as Bacalar and Mahahual, along with the latest tourism news focused on eco-friendly initiatives.\\n\\nKey features:\\n\\nFully responsive mobile-first design\\nInteractive map and dynamic news section\\nFast, SEO-optimized architecture\\n\\nBuilt with Next.js + Tailwind CSS frontend and a custom Apigility (PHP) REST API backend.\\nThe result is a clean, professional platform helping tourists discover the natural beauty and sustainable tourism experiences of Quintana Roo.",
+          "skills": ["Next.js", "React", "JavaScript", "Typescript", "Node.js", "Git", "Github", "API Integration","Apigility", "PHP", "MySQL"]
+        },
+        {
+          "title": "El Turista Puebla – Tourism Portal front in Next.js",
+          "link": "https://puebla.turista.com.mx",
+          "description": "My role. Full-Stack Developer & Project Lead - I built the complete frontend using Next.js + Tailwind CSS and connected it to a custom Apigility (PHP) REST API that powers all the content.\\nThe result is a professional, fast, and visually appealing platform that helps both national and international tourists discover the rich natural, cultural, and historical heritage of Puebla.",
+          "skills": ["Next.js", "React", "JavaScript", "Typescript", "Node.js", "Git", "Github", "API Integration","Apigility", "PHP", "MySQL"]
+        },
+        {
           "title": "El Turista Estado de Mexico – Tourism Portal front in Next.js",
           "link": "https://edomexico.turista.com.mx",
-          "description": "My role. Full-Stack Developer & Project Lead - I built the complete frontend using Next.js + Tailwind CSS and connected it to a custom Apigility (PHP) REST API that powers all the content.\nThe result is a professional, fast, and visually appealing platform that helps both national and international tourists discover the rich natural, cultural, and historical heritage of the State of Mexico.",
+          "description": "My role. Full-Stack Developer & Project Lead - I built the complete frontend using Next.js + Tailwind CSS and connected it to a custom Apigility (PHP) REST API that powers all the content.\\nThe result is a professional, fast, and visually appealing platform that helps both national and international tourists discover the rich natural, cultural, and historical heritage of the State of Mexico.",
           "skills": ["Next.js", "React", "JavaScript", "Typescript", "N8n", "Node.js", "Git", "Github", "API Integration","Apigility", "PHP", "MySQL"]
         },
         {
           "title": "El Turista Chiapas – Tourism Portal front in Next.js",
           "link": "https://chiapas.turista.com.mx",
-          "description": "My role. Full-Stack Developer & Project Lead - I designed, developed the entire web application from scratch.\nProject description.\n\nThe website is a modern travel guide that promotes the state's main attractions.\n\nMain features:\n\nFully responsive design with mobile-first approach\nDynamic news section\nAttractive destination showcases\nFast and SEO-optimized architecture\n\nI built the complete frontend using Next.js + Tailwind CSS and connected it to a custom Apigility (PHP) REST API that powers all the content.\nThe result is a professional, fast, and visually appealing platform that helps both national and international tourists discover the natural and cultural richness of Chiapas.",
+          "description": "My role. Full-Stack Developer & Project Lead - I designed, developed the entire web application from scratch.\\nProject description.\\n\\nThe website is a modern travel guide that promotes the state's main attractions.\\n\\nMain features:\\n\\nFully responsive design with mobile-first approach\\nDynamic news section\\nAttractive destination showcases\\nFast and SEO-optimized architecture\\n\\nI built the complete frontend using Next.js + Tailwind CSS and connected it to a custom Apigility (PHP) REST API that powers all the content.\\nThe result is a professional, fast, and visually appealing platform that helps both national and international tourists discover the natural and cultural richness of Chiapas.",
           "skills": ["Next.js", "React", "JavaScript", "Typescript", "N8n", "Node.js", "Git", "Github", "API Integration","Apigility", "PHP", "MySQL"]
         },
         {
@@ -37,12 +55,6 @@
           "link": "https://www.upwork.com/freelancers/enriqueadelino?p=1988731053047803904",
           "description": "Developed a temporary email service allowing users to generate disposable email addresses valid for 30 minutes. Designed a responsive React frontend for seamless user interaction. Engineered the backend using Nginx on DigitalOcean, integrating Dovecot for email storage and Postfix for message delivery. Utilized Supabase to manage and store temporary emails and messages, ensuring scalability and reliability. The project emphasized security, efficiency, and user experience, providing a practical solution for short-term email needs.",
           "skills": ["React", "JavaScript", "Typescript", "Node.js", "Git", "Github", "Nginx", "Dovecot", "Postfix", "Supabase"]
-        },
-        {
-          "title": "Peters - App Optimization",
-          "link": "https://www.upwork.com/freelancers/enriqueadelino?p=1879728081945686016",
-          "description": "Fixed Gravity Forms WordPress integration, improved app performance with Gatsby.js and Netlify hosting.",
-          "skills": ["Gatsby.js", "React", "JavaScript", "Typescript", "Wordpress", "Node.js", "Git", "Github"]
         },
         {
           "title": "Bridge Artists - Website Maintenance",
@@ -81,40 +93,16 @@
           "skills": ["Gatsby.js", "React", "JavaScript", "Wordpress", "Node.js", "Git", "Github", "GraphQL","Spanish Translation", "English Translation", "Full-Stack Development"]
         },
         {
-          "title": "Frida Travel - Vacation Platform",
-          "link": "https://frida-travel.netlify.app/en/",
-          "description": "Dynamic travel website with Gatsby.js and Contentful for Mexican destinations. Fast, interactive, and visually appealing.",
-          "skills": ["Gatsby.js", "React", "JavaScript", "Contentful", "Node.js", "Git", "Github", "GraphQL","Full-Stack Development", "Spanish Translation", "English Translation"]
-        },
-        {
           "title": "Turista Mexico - Travel Guide",
           "link": "https://www.turista.com.mx/",
           "description": "Comprehensive travel guide to Mexico destinations using PHP and MySQL. Robust database-driven web application.",
           "skills": ["PHP", "MySQL", "Apache", "Full-Stack Development","Spanish Translation", "English Translation"]
         },
         {
-          "title": "Turista Estado de M\u00e9xico",
-          "link": "https://edomexico.turista.com.mx/",
-          "description": "Tourism website for State of Mexico with Gatsby, Tailwind CSS, and GraphQL. Detailed destination information.",
-          "skills": ["Gatsby.js", "Tailwind CSS", "GraphQL", "Netlify", "API Integration", "Full-Stack Development","Spanish Translation", "English Translation"]
-        },
-        {
-          "title": "Turista Chiapas - Tourism Portal",
-          "link": "https://chiapas.turista.com.mx/",
-          "description": "Tourism website for Chiapas region featuring natural wonders, hotels, events, and cultural highlights.",
-          "skills": ["Gatsby.js", "Tailwind CSS", "GraphQL", "Netlify", "API Integration", "Full-Stack Development","Spanish Translation", "English Translation"]
-        },
-        {
           "title": "THoteles.com - Accommodation Platform",
           "link": "https://thoteles.com",
           "description": "Spanish platform for unique accommodations built with WordPress, PHP, MySQL on Digital Ocean.",
           "skills": ["Wordpress", "PHP", "MySQL", "NGINX", "Digital Ocean", "Full-Stack Development","Spanish Translation"]
-        },
-        {
-          "title": "Gano Excel Cancun - Health Platform",
-          "link": "https://ganocancun.com",
-          "description": "Bilingual health wellness website for premium coffee products using Next.js, React, and Tailwind CSS.",
-          "skills": ["Next.js", "React", "Tailwind CSS", "Vercel", "Full-Stack Development","Spanish Translation"]
         }
       ]
     },
